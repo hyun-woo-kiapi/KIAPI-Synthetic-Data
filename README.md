@@ -42,7 +42,7 @@ Collected across diverse geographical regions and complex urban road environment
 
 ## Data Format
 
-![Data_Architecture_Image](assets/dataset_architecture.png)
+![Data_Architecture_Image](assets/dataset_architecture.jpg)
 
 The KIAPI End-to-End Dataset employs a highly structured, relational database approach (PostgreSQL) to manage extensive metadata, seamlessly linked with external storage for raw multi-modal sensor files. This architecture is designed to handle large-scale time-series data efficiently for E2E trajectory planning.
 
