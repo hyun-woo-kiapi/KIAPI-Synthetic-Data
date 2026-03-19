@@ -88,16 +88,39 @@ To facilitate streamlined training and evaluation, the continuous driving data i
 * **Trajectory Tracking:** Includes relative coordinates (`rel_x`, `rel_y`, `rel_z`) measured from the starting position of each clip, enabling precise local trajectory generation.
 * **Kinematics & Dynamics:** Provides 3D velocities (`vx`, `vy`, `vz`), accelerations (`ax`, `ay`, `az`), quaternion-based orientation, and path curvature (`curvature`).
 
+| Column Name | Description |
+| :--- | :--- |
+| `table_index` | Unique internal index. |
+| `frame_index` | Index of the frame to which this data belongs. |
+| `ego_pos_timestamp` | Acquisition timestamp of this specific data point. |
+| `time_diff` | Delta time between the frame and this data point. |
+| `rel_x`, `rel_y`, `rel_z` | Relative coordinates measured from the starting position of the clip's first frame. |
+| `qw`, `qx`, `qy`, `qz` | Quaternion-based orientation values. |
+| `vx`, `vy`, `vz` | 3D velocity vectors. |
+| `ax`, `ay`, `az` | 3D acceleration vectors. |
+| `curvature` | Path curvature data. |
+| `is_key_frame` | Indicates if this data was selected as the closest preceding match to the frame's baseline timestamp. |
+
 ### 3. Sensor Data Management
 To optimize storage and access, the dataset separates raw sensor files from their metadata:
 * **Raw Data:** The actual high-resolution images and point clouds are stored externally. The paths to these compressed files (e.g., `clip_index_CAMERA_FRONT.zip`, `clip_index_LIDAR_TOP.zip`) are cataloged at the Clip level.
 * **Sensor Metadata:** The `camera`, `lidar` tables store frame-level metadata, including exact acquisition timestamps, channel information, and an is_key_frame flag. This flag indicates which specific sensor data point was selected as the closest preceding match to the frame's baseline timestamp.
 
-### 4. Contextual Metadata
+| Column Name | Description |
+| :--- | :--- |
+| `table_index` | Unique internal index. |
+| `frame_index` | Index of the frame to which this data belongs. |
+| `[sensor]_timestamp` | Acquisition timestamp of this specific sensor data. |
+| `time_diff` | Delta time between the frame and this data point. |
+| `channel` | The specific sensor channel (e.g., TOP, FRONT, FRONT_LEFT). |
+| `sensor_config_index` | Internal index for sensor configuration. |
+| `is_key_frame` | Indicates if this data was selected as the closest preceding match to the frame's baseline timestamp. |
+
+<!-- ### 4. Contextual Metadata
 Understanding the environment and setup is crucial for Physical AI generalization. The dataset provides rich context through auxiliary tables:
 * **Vehicle:** Contains detailed sensor configurations, including extrinsic calibration parameters (TF) and intrinsic specs, stored in a flexible JSON format (`sensor_config`).
 * **Driver:** Includes behavioral context, such as driving style (e.g., Aggressive, Normal, Defensive) and years of experience.
-* **Scenario:** Categorizes the environmental context, including city names, road names, and road types (e.g., Highway, City road).
+* **Scenario:** Categorizes the environmental context, including city names, road names, and road types (e.g., Highway, City road). -->
 
 ---
 
