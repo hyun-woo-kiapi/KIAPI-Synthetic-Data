@@ -4,7 +4,11 @@
 
 ![Driving_Sample_GIF](link_to_your_gif_file.gif) 
 
-The KIAPI End-to-End Dataset is a large-scale, multi-modal dataset specifically curated to advance the frontiers of End-to-End (E2E) Autonomous Driving and Physical AI. Additionally, it serves as the official foundational dataset for the “A1 Autonomous Car Challenge”, a premier E2E autonomous driving competition. (https://autonomouscar.or.kr/)
+The KIAPI End-to-End Dataset is a large-scale, multi-modal dataset specifically curated to advance the frontiers of End-to-End (E2E) Autonomous Driving and Physical AI. 
+
+![AI_Challenge_Image](assets/A1_challenge.png)
+
+Additionally, it serves as the official foundational dataset for the “A1 Autonomous Car Challenge”, a premier E2E autonomous driving competition. (https://autonomouscar.or.kr/)
 
 Collected across diverse geographical regions and complex urban road environments, this dataset provides a comprehensive sensor suite designed to facilitate the direct mapping of raw sensor inputs to vehicle control and behavioral planning. Our primary goal is to empower the global research community by providing high-quality, real-world data tailored for pure E2E learning paradigms.
 
@@ -84,5 +88,5 @@ This dataset was developed as part of a **National Research Project** funded by 
 
 ### Contact
 For usage inquiries, data access, or technical support, please contact the project coordinators:
-* **Hyun Woo** (Associate Researcher) - `[Insert Email]`
-* **HyeongSeok Yun** (Team Manager) - `[Insert Email]`
+* **HyeongSeok Yun** (Team Manager/Strategic Planning Division) - `[gudtjr0124@kiapi.or.kr]`
+* **Hyun Woo** (Associate Researcher/Strategic Planning Division) - `[hyunwoo@kiapi.or.kr]`
