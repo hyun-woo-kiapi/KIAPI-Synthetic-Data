@@ -2,7 +2,7 @@
 
 ## KIAPI End-to-End Dataset for Autonomous Systems
 
-![Driving_Sample_GIF](link_to_your_gif_file.gif) 
+![Driving_Sample_Image](assets/test.png) 
 
 The KIAPI End-to-End Dataset is a large-scale, multi-modal dataset specifically curated to advance the frontiers of End-to-End (E2E) Autonomous Driving and Physical AI. 
 
