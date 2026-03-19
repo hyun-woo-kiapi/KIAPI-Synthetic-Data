@@ -9,7 +9,7 @@ The KIAPI End-to-End Dataset is a large-scale, multi-modal dataset specifically 
 
 ![AI_Challenge_Image](assets/A1_challenge.png)
 
-Additionally, it serves as the official foundational dataset for the “A1 Autonomous Car Challenge”, a premier E2E autonomous driving competition. (https://autonomouscar.or.kr/)
+Additionally, it serves as the official foundational dataset for the “2026 A1 Autonomous Car Challenge”, a premier E2E autonomous driving competition. (https://autonomouscar.or.kr/)
 
 Collected across diverse geographical regions and complex urban road environments, this dataset provides a comprehensive sensor suite designed to facilitate the direct mapping of raw sensor inputs to vehicle control and behavioral planning. Our primary goal is to empower the global research community by providing high-quality, real-world data tailored for pure E2E learning paradigms.
 
@@ -48,9 +48,43 @@ The KIAPI End-to-End Dataset employs a highly structured, relational database ap
 
 ### 1. Data Hierarchy
 To facilitate streamlined training and evaluation, the continuous driving data is hierarchically segmented:
+
 * **Session:** Represents a continuous, unbroken recording of a driving run, linking the specific vehicle, driver, and scenario.
+  
+  | Column Name | Description |
+  | :--- | :--- |
+  | `session_index` | [cite_start]Unique index of the session. [cite: 14] |
+  | `scenario_index` | [cite_start]Index of the scenario where the session was recorded. [cite: 14] |
+  | `vehicle_index` | [cite_start]Index of the vehicle used to record the session. [cite: 14] |
+  | `driver_index` | [cite_start]Index of the driver who recorded the session. [cite: 14] |
+  | `session_start_timestamp` | [cite_start]Timestamp when the session recording started. [cite: 14] |
+  | `session_finish_timestamp` | [cite_start]Timestamp when the session recording ended. [cite: 14] |
+  | `head_clip_index` | [cite_start]Index of the first clip within the session. [cite: 14] |
+  | `tail_clip_index` | [cite_start]Index of the last clip within the session. [cite: 14] |
+  | `note` | [cite_start]Additional details about the session. [cite: 14] |
+
 * **Clip:** The fundamental unit for training and evaluation. Sessions are sliced into fixed time segments (e.g., 20 seconds). Each clip contains information regarding specific driving events and references the compressed raw sensor data files.
-* **Frame:** The granular synchronization points within a clip. A frame aligns the disparate multi-modal sensor data (LiDAR, Camera, Radar) to a single reference timestamp.
+  
+  | Column Name | Description |
+  | :--- | :--- |
+  | `clip_index` | [cite_start]Unique index of the clip. [cite: 17] |
+  | `session_index` | [cite_start]Index of the session to which this clip belongs. [cite: 17] |
+  | `event` | [cite_start]Indicates the presence of a specific driving event within the clip. [cite: 17] |
+  | `clip_start_timestamp` | [cite_start]Start timestamp of the clip. [cite: 17] |
+  | `clip_finish_timestamp` | [cite_start]End timestamp of the clip. [cite: 17] |
+  | `tail_frame_index` | [cite_start]Index of the last frame within this clip. [cite: 17] |
+  | `lidar_compressed_filename` | [cite_start]Path and filename of the compressed LiDAR data (e.g., `clip_index_LIDAR_TOP.zip`). [cite: 17] |
+  | `camera_compressed_filename` | [cite_start]Path and filename of the compressed Camera data (e.g., `clip_index_CAMERA_FRONT.zip`). [cite: 17] |
+  | `radar_compressed_filename` | [cite_start]Path and filename of the compressed Radar data. [cite: 17] |
+
+* **Frame:** The granular reference point within a clip. Rather than relying on exact hardware-level synchronization, a frame is constructed based on a baseline timestamp. It aligns the disparate multi-modal sensor data (LiDAR, Camera, Radar) by strictly grouping the most recent data points acquired prior to this baseline, ensuring no future information is referenced.
+  
+  | Column Name | Description |
+  | :--- | :--- |
+  | `frame_index` | [cite_start]Unique internal index for the frame. [cite: 20] |
+  | `clip_index` | [cite_start]Index of the clip to which this frame belongs. [cite: 20] |
+  | `current_index` | [cite_start]The sequential index of the frame within its specific clip. [cite: 20] |
+  | `time_offset` | [cite_start]Delta time from the starting frame of the clip to this current frame. [cite: 20] |
 
 ### 2. Ego State & Trajectory Ground Truth (`ego_pos`)
 * For E2E motion planning, the `ego_pos` table serves as the primary ground truth. Derived from high-precision GNSS/IMU sensors, it provides comprehensive vehicle kinematics.
@@ -60,7 +94,7 @@ To facilitate streamlined training and evaluation, the continuous driving data i
 ### 3. Sensor Data Management
 To optimize storage and access, the dataset separates raw sensor files from their metadata:
 * **Raw Data:** The actual high-resolution images and point clouds are stored externally. The paths to these compressed files (e.g., `clip_index_CAMERA_FRONT.zip`, `clip_index_LIDAR_TOP.zip`) are cataloged at the Clip level.
-* **Sensor Metadata:** The `camera`, `lidar`, and `radar` tables store frame-level metadata, including exact timestamps, channel information, and an `is_key_frame` flag to indicate exact synchronization points across different sensors.
+* **Sensor Metadata:** The `camera`, `lidar` tables store frame-level metadata, including exact acquisition timestamps, channel information, and an is_key_frame flag. This flag indicates which specific sensor data point was selected as the closest preceding match to the frame's baseline timestamp.
 
 ### 4. Contextual Metadata
 Understanding the environment and setup is crucial for Physical AI generalization. The dataset provides rich context through auxiliary tables:
