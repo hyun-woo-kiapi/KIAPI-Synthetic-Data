@@ -6,6 +6,7 @@
 
 The KIAPI End-to-End Dataset is a large-scale, multi-modal dataset specifically curated to advance the frontiers of End-to-End (E2E) Autonomous Driving and Physical AI. 
 
+
 ![AI_Challenge_Image](assets/A1_challenge.png)
 
 Additionally, it serves as the official foundational dataset for the “A1 Autonomous Car Challenge”, a premier E2E autonomous driving competition. (https://autonomouscar.or.kr/)
@@ -41,7 +42,7 @@ Collected across diverse geographical regions and complex urban road environment
 
 ## Data Format
 
-![Data_Architecture_Image](link_to_your_image_file.png)
+![Data_Architecture_Image](dataset_architecture.png)
 
 The KIAPI End-to-End Dataset employs a highly structured, relational database approach (PostgreSQL) to manage extensive metadata, seamlessly linked with external storage for raw multi-modal sensor files. This architecture is designed to handle large-scale time-series data efficiently for E2E trajectory planning.
 
