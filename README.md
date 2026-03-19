@@ -53,38 +53,38 @@ To facilitate streamlined training and evaluation, the continuous driving data i
   
   | Column Name | Description |
   | :--- | :--- |
-  | `session_index` | [cite_start]Unique index of the session. [cite: 14] |
-  | `scenario_index` | [cite_start]Index of the scenario where the session was recorded. [cite: 14] |
-  | `vehicle_index` | [cite_start]Index of the vehicle used to record the session. [cite: 14] |
-  | `driver_index` | [cite_start]Index of the driver who recorded the session. [cite: 14] |
-  | `session_start_timestamp` | [cite_start]Timestamp when the session recording started. [cite: 14] |
-  | `session_finish_timestamp` | [cite_start]Timestamp when the session recording ended. [cite: 14] |
-  | `head_clip_index` | [cite_start]Index of the first clip within the session. [cite: 14] |
-  | `tail_clip_index` | [cite_start]Index of the last clip within the session. [cite: 14] |
-  | `note` | [cite_start]Additional details about the session. [cite: 14] |
+  | `session_index` | Unique index of the session. |
+  | `scenario_index` | Index of the scenario where the session was recorded. |
+  | `vehicle_index` | Index of the vehicle used to record the session. |
+  | `driver_index` | Index of the driver who recorded the session. |
+  | `session_start_timestamp` | Timestamp when the session recording started. |
+  | `session_finish_timestamp` | Timestamp when the session recording ended. |
+  | `head_clip_index` | Index of the first clip within the session. |
+  | `tail_clip_index` | Index of the last clip within the session. |
+  | `note` | Additional details about the session. |
 
 * **Clip:** The fundamental unit for training and evaluation. Sessions are sliced into fixed time segments (e.g., 20 seconds). Each clip contains information regarding specific driving events and references the compressed raw sensor data files.
   
   | Column Name | Description |
   | :--- | :--- |
-  | `clip_index` | [cite_start]Unique index of the clip. [cite: 17] |
-  | `session_index` | [cite_start]Index of the session to which this clip belongs. [cite: 17] |
-  | `event` | [cite_start]Indicates the presence of a specific driving event within the clip. [cite: 17] |
-  | `clip_start_timestamp` | [cite_start]Start timestamp of the clip. [cite: 17] |
-  | `clip_finish_timestamp` | [cite_start]End timestamp of the clip. [cite: 17] |
-  | `tail_frame_index` | [cite_start]Index of the last frame within this clip. [cite: 17] |
-  | `lidar_compressed_filename` | [cite_start]Path and filename of the compressed LiDAR data (e.g., `clip_index_LIDAR_TOP.zip`). [cite: 17] |
-  | `camera_compressed_filename` | [cite_start]Path and filename of the compressed Camera data (e.g., `clip_index_CAMERA_FRONT.zip`). [cite: 17] |
-  | `radar_compressed_filename` | [cite_start]Path and filename of the compressed Radar data. [cite: 17] |
+  | `clip_index` | Unique index of the clip. |
+  | `session_index` | Index of the session to which this clip belongs.|
+  | `event` | Indicates the presence of a specific driving event within the clip. |
+  | `clip_start_timestamp` | Start timestamp of the clip. |
+  | `clip_finish_timestamp` | End timestamp of the clip. |
+  | `tail_frame_index` | Index of the last frame within this clip. |
+  | `lidar_compressed_filename` | Path and filename of the compressed LiDAR data (e.g., `clip_index_LIDAR_TOP.zip`). |
+  | `camera_compressed_filename` | Path and filename of the compressed Camera data (e.g., `clip_index_CAMERA_FRONT.zip`). |
+  | `radar_compressed_filename` | Path and filename of the compressed Radar data. |
 
 * **Frame:** The granular reference point within a clip. Rather than relying on exact hardware-level synchronization, a frame is constructed based on a baseline timestamp. It aligns the disparate multi-modal sensor data (LiDAR, Camera, Radar) by strictly grouping the most recent data points acquired prior to this baseline, ensuring no future information is referenced.
   
   | Column Name | Description |
   | :--- | :--- |
-  | `frame_index` | [cite_start]Unique internal index for the frame. [cite: 20] |
-  | `clip_index` | [cite_start]Index of the clip to which this frame belongs. [cite: 20] |
-  | `current_index` | [cite_start]The sequential index of the frame within its specific clip. [cite: 20] |
-  | `time_offset` | [cite_start]Delta time from the starting frame of the clip to this current frame. [cite: 20] |
+  | `frame_index` | Unique internal index for the frame. |
+  | `clip_index` | Index of the clip to which this frame belongs. |
+  | `current_index` | The sequential index of the frame within its specific clip. |
+  | `time_offset` | Delta time from the starting frame of the clip to this current frame. |
 
 ### 2. Ego State & Trajectory Ground Truth (`ego_pos`)
 * For E2E motion planning, the `ego_pos` table serves as the primary ground truth. Derived from high-precision GNSS/IMU sensors, it provides comprehensive vehicle kinematics.
