@@ -70,8 +70,8 @@ To facilitate streamlined training and evaluation, the continuous driving data i
   | `clip_start_timestamp` | Start timestamp of the clip. |
   | `clip_finish_timestamp` | End timestamp of the clip. |
   | `tail_frame_index` | Index of the last frame within this clip. |
-  | `lidar_compressed_filename` | Path and filename of the compressed LiDAR data (e.g., `clip_index_LIDAR_TOP.zip`). |
-  | `camera_compressed_filename` | Path and filename of the compressed Camera data (e.g., `clip_index_CAMERA_FRONT.zip`). |
+  | `lidar_compressed_filename` | Path and filename of the compressed LiDAR data (e.g., `clip_0000000/lidar_pcd/lidar.parquet`). |
+  | `camera_compressed_filename` | Path and filename of the compressed Camera data (e.g., `clip_0000000/camera_video/camera.zip`). |
   | `radar_compressed_filename` | Path and filename of the compressed Radar data. |
 
 * **Frame:** The granular reference point within a clip. Rather than relying on exact hardware-level synchronization, a frame is constructed based on a baseline timestamp. It aligns the disparate multi-modal sensor data (LiDAR, Camera, Radar) by strictly grouping the most recent data points acquired prior to this baseline, ensuring no future information is referenced.
@@ -103,7 +103,7 @@ To facilitate streamlined training and evaluation, the continuous driving data i
 
 ### 3. Sensor Data Management
 To optimize storage and access, the dataset separates raw sensor files from their metadata:
-* **Raw Data:** The actual high-resolution images and point clouds are stored externally. The paths to these compressed files (e.g., `clip_index_CAMERA_FRONT.zip`, `clip_index_LIDAR_TOP.zip`) are cataloged at the Clip level.
+* **Raw Data:** The actual high-resolution images and point clouds are stored externally. The paths to these compressed files (e.g., `clip_0000000/camera_video/camera.zip`, `clip_0000000/lidar_pcd/lidar.parquet`) are cataloged at the Clip level.
 * **Sensor Metadata:** The `camera`, `lidar` tables store frame-level metadata, including exact acquisition timestamps, channel information, and an is_key_frame flag. This flag indicates which specific sensor data point was selected as the closest preceding match to the frame's baseline timestamp.
 
 | Column Name | Description |
