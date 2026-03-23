@@ -139,7 +139,15 @@ The copyright and ownership of this dataset belong to the **Korea Intelligent Au
 *(Note: Specific open-source license terms such as Apache 2.0 or BSD will be updated shortly.)*
 
 ### Acknowledgement
-This dataset was developed as part of a **National Research Project** funded by the South Korean government. Any publications, research, or projects utilizing this dataset must explicitly include the appropriate citation and acknowledgment of KIAPI's contribution.
+This dataset was developed as part of a **National Research Project** funded by the South Korean government. 
+
+If you use this dataset in your research, academic papers, or any published work, you **must explicitly include the following acknowledgment** to recognize the funding source and KIAPI's contribution. Please copy and paste the appropriate language version into your publication:
+
+**[Korean]**
+> 이 데이터셋은 2025년도 산업통상부 및 한국산업기술기획평가원(KEIT) 연구비 지원에 의한 연구로 생성된 데이터셋임 (RS-2025-25453109)
+
+**[English]**
+> This work was supported by the Industrial Strategic Technology Development Program (Project No. RS-2025-25453109, Development of advanced synthetic data collection and simulation technology for autonomous driving) funded by the Ministry of Trade, Industry & Resources (MOTIR, Korea)
 
 ### Contact
 For usage inquiries, data access, or technical support, please contact the project coordinators:
