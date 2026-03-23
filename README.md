@@ -136,7 +136,7 @@ Understanding the environment and setup is crucial for Physical AI generalizatio
 
 ### License
 The copyright and ownership of this dataset belong to the **Korea Intelligent Automotive Parts Promotion Institute (KIAPI)**.
-*(Note: Specific open-source license terms such as Apache 2.0 or BSD will be updated shortly.)*
+*(Note: Specific open-source license terms will be updated shortly.)*
 
 ### Acknowledgement
 This dataset was developed as part of a **National Research Project** funded by the South Korean government. 
@@ -152,5 +152,6 @@ If you use this dataset in your research, academic papers, or any published work
 ### Contact
 Please note that the full dataset is not yet publicly open. If you wish to request data access for research purposes, or if you have any technical inquiries, please contact the project coordinators below:
 
+* **EunJu Yang** (General Manager / Strategic Planning Division) - ejyang@kiapi.or.kr
 * **HyeongSeok Yun** (Team Manager / Strategic Planning Division) - gudtjr0124@kiapi.or.kr
 * **Hyun Woo** (Associate Researcher / Strategic Planning Division) - hyunwoo@kiapi.or.kr
