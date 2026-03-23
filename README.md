@@ -150,6 +150,7 @@ If you use this dataset in your research, academic papers, or any published work
 > This work was supported by the Industrial Strategic Technology Development Program (Project No. RS-2025-25453109, Development of advanced synthetic data collection and simulation technology for autonomous driving) funded by the Ministry of Trade, Industry & Resources (MOTIR, Korea)
 
 ### Contact
-For usage inquiries, data access, or technical support, please contact the project coordinators:
-* **HyeongSeok Yun** (Team Manager/Strategic Planning Division) - `[gudtjr0124@kiapi.or.kr]`
-* **Hyun Woo** (Associate Researcher/Strategic Planning Division) - `[hyunwoo@kiapi.or.kr]`
+Please note that the full dataset is not yet publicly open. If you wish to request data access for research purposes, or if you have any technical inquiries, please contact the project coordinators below:
+
+* **HyeongSeok Yun** (Team Manager / Strategic Planning Division) - gudtjr0124@kiapi.or.kr
+* **Hyun Woo** (Associate Researcher / Strategic Planning Division) - hyunwoo@kiapi.or.kr
